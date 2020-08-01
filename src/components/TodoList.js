@@ -9,8 +9,8 @@ const TodoList = props =>{
     <>
     <ul>
       {
-          this.props.map(item => {
-              return <Todo key ={item.id} props = {item} />
+          props.todos.map(item => {
+              return (<Todo key={item.id} item = {item} strikeItem = {props.strikeItem}/>)
           })
       }
     </ul>

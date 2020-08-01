@@ -1,6 +1,12 @@
 import React from 'react'
 
-const Todo = props => <h1>{props.task}</h1>
+const Todo = props => {
+return(
+    <li onClick = {props.strikeItem} className = {`item${props.item.completed ? 'completed': ''}`}>
+        {props.item.task}
+
+    </li>
+)}
 
 
 export default Todo
