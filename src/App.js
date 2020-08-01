@@ -24,7 +24,30 @@ class App extends React.Component {
   }
 }
 
-strikeItem=(event)=>{console.log('I been clicked')}
+strikeItem=(itemId)=>{
+  console.log(itemId)
+  this.setState({
+    todos:this.state.todos.map(item => {
+      if(item.id === itemId){
+        return{
+          ...item,
+          completed: !item.completed
+        }
+      }
+      return item
+    })
+  })
+}
+
+addTask = (event, item) =>{
+  event.preventDefault()
+  const newTask = {
+    task: item,
+    id: new Date(),
+    completed: false
+  }
+  this.setState({todos:[...this.state.todos, newTask]})
+}
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, 
   //and any change handlers you need to work with your state
@@ -33,7 +56,7 @@ strikeItem=(event)=>{console.log('I been clicked')}
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoForm todos = {this.state.todos} />
+        <ToDoForm addTask = {this.addTask} />
         <ToDoList todos = {this.state.todos} strikeItem = {this.strikeItem}/>
         
       </div>
