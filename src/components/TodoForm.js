@@ -22,7 +22,7 @@ render(){
         <form onSubmit = {this.submitTask}>
         <input type = "text" name = "task" onChange = {this.changeHandler}></input>
         <button>Add Todo</button>
-        <button onClick = {this.clearCompleted}>Clear Completed</button>
+        <button onClick = {this.props.clearTasks}>Clear Completed</button>
         </form>
         
         

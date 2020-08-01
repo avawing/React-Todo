@@ -43,10 +43,17 @@ addTask = (event, item) =>{
   event.preventDefault()
   const newTask = {
     task: item,
-    id: new Date(),
+    id: Date.now(),
     completed: false
   }
   this.setState({todos:[...this.state.todos, newTask]})
+}
+
+clearTasks = (event) => {
+  event.preventDefault()
+  this.setState({
+    todos: this.state.todos.filter(item => !item.completed)
+  })
 }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, 
@@ -56,7 +63,7 @@ addTask = (event, item) =>{
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoForm addTask = {this.addTask} />
+        <ToDoForm addTask = {this.addTask} clearTasks = {this.clearTasks}/>
         <ToDoList todos = {this.state.todos} strikeItem = {this.strikeItem}/>
         
       </div>
