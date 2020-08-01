@@ -1,6 +1,6 @@
 import React from 'react';
 import ToDoForm from './components/TodoForm'
-import ToDoList from './components/TodoList'
+
 
 class App extends React.Component {
   constructor(){
@@ -19,7 +19,6 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList />
         <ToDoForm />
       </div>
     );
